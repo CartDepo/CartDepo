@@ -1,10 +1,10 @@
 package ru.depo.api.cart
 
 data class CartDto(
-    val id: Long?,
-    val number: String?,
-    val year: Int?,
-    val contract: Long?,
-    val foreman: Long?,
-    val place: Long?
+    val id: Long? = null,
+    val number: String? = null,
+    val year: Int? = null,
+    val contract: Long? = null,
+    val foreman: Long? = null,
+    val place: Long? = null
 )
