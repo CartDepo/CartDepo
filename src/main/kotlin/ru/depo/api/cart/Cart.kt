@@ -1,16 +1,14 @@
 package ru.depo.api.cart
 
-import javax.persistence.Column
-import javax.persistence.Entity
-import javax.persistence.Id
-import javax.persistence.Table
+import javax.persistence.*
 
 @Entity
 @Table(name = "cart", schema = "depo")
 class Cart(
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "cartid")
-    val id: Long,
+    val id: Long? = null,
 
     @Column(name = "number")
     val number: String,

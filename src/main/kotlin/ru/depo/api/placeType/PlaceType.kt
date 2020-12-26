@@ -8,7 +8,7 @@ class PlaceType(
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         @Column(name = "placetypeid")
-        val id: Long = 0,
+        val id: Long? = null,
 
         @Column(name = "name")
         val name: String
