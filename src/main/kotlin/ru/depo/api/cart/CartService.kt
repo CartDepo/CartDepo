@@ -15,7 +15,6 @@ class CartService(
     fun save(cartDto: CartDto): CartDto =
             CartMapper.toDto(cartRepository.save(
                     Cart(
-                            id = cartDto.id ?: throw UnsupportedEntityException("УИД вагона не задан"),
                             number = cartDto.number ?: throw UnsupportedEntityException("Номер вагона не задан"),
                             year = cartDto.year ?: throw UnsupportedEntityException("Год вагона не задан"),
                             contract = cartDto.contract ?: throw UnsupportedEntityException("Договор вагона не задан"),
