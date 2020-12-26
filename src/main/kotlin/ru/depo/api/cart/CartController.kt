@@ -3,14 +3,16 @@ package ru.depo.api.cart
 import org.springframework.web.bind.annotation.*
 
 @RestController
-@RequestMapping("")
-class CartController {
-    @GetMapping("")
-    fun testGet(): String = "Shit"
+@RequestMapping("cart")
+class CartController(
+        private val cartService: CartService
+) {
+    @GetMapping("all")
+    fun findAll(): List<CartDto> =
+            cartService.findAll()
 
-    @GetMapping("all/{beach}")
-    fun test2Get(
-            @PathVariable beach: String,
-            @RequestParam str: String
-    ) = str + beach
+    @PostMapping("save")
+    fun save(@RequestBody cartDto: CartDto): CartDto =
+            cartService.save(cartDto = cartDto)
+
 }
