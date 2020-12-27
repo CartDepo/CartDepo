@@ -3,7 +3,7 @@ package ru.depo.api.cart
 import javax.persistence.*
 
 @Entity
-@Table(name = "cart", schema = "depo")
+@Table(name = "cart", schema = "public")
 class Cart(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,5 +23,8 @@ class Cart(
     val foreman: Long,
 
     @Column(name = "placeid")
-    val place: Long
+    val place: Long,
+
+    @Column(name = "placetype")
+    val placeType: Long
 )

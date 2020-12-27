@@ -5,6 +5,6 @@ object DetailTypeMapper {
             DetailTypeDto(
                     id = entity.id,
                     name = entity.name,
-                    number = entity.number
+                    amount = entity.amount
             )
 }
