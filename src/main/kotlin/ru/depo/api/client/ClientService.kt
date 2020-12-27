@@ -24,6 +24,10 @@ class ClientService(
                     )
             )
 
-    fun delete(clientDto: ClientDto) =
-            clientRepository.deleteById(clientDto.id ?: throw UnsupportedEntityException("УИД клиента не задан"))
+    fun delete(id: Long) =
+            clientRepository.deleteById(id)
+
+
+    fun getOne(id: Long): Client =
+            clientRepository.getOne(id)
 }
