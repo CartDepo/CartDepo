@@ -9,7 +9,7 @@ class CartController(
 ) {
     @GetMapping("all")
     fun findAll(): List<CartDto> =
-            cartService.findAll()
+            cartService.getAll()
 
     @PostMapping("save")
     fun save(@RequestBody cartDto: CartDto): CartDto =
