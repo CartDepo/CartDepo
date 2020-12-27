@@ -19,7 +19,8 @@ class CartService(
                             year = cartDto.year ?: throw UnsupportedEntityException("Год вагона не задан"),
                             contract = cartDto.contract ?: throw UnsupportedEntityException("Договор вагона не задан"),
                             foreman = cartDto.foreman ?: throw UnsupportedEntityException("Бригадир вагона не задан"),
-                            place = cartDto.place ?: throw UnsupportedEntityException("Расположение вагона не задан")
+                            place = cartDto.place ?: throw UnsupportedEntityException("Расположение вагона не задан"),
+                            placeType = cartDto.placeType ?: throw UnsupportedEntityException("Тип расположения вагона не задан")
 
                     )
             ))

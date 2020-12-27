@@ -8,6 +8,7 @@ object CartMapper {
                     year = entity.year,
                     contract = entity.contract,
                     foreman = entity.foreman,
-                    place = entity.place
+                    place = entity.place,
+                    placeType = entity.placeType
             )
 }
