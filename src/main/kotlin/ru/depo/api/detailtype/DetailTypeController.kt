@@ -4,9 +4,9 @@ import org.springframework.web.bind.annotation.*
 
 @RestController
 @RequestMapping("detail-type")
-class DetailTypeController (
+class DetailTypeController(
         private val detailTypeService: DetailTypeService
-){
+) {
     @GetMapping("all")
     fun getAll(): List<DetailTypeDto> =
             detailTypeService.getAll()
@@ -16,7 +16,6 @@ class DetailTypeController (
             detailTypeService.save(detailTypeDto = detailTypeDto)
 
     @DeleteMapping("delete")
-    fun delete(detailTypeDto: DetailTypeDto) =
-            detailTypeService.delete(detailTypeDto = detailTypeDto)
-
+    fun delete(@RequestParam id: Long) =
+            detailTypeService.delete(id = id)
 }

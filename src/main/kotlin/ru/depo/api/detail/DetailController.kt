@@ -17,4 +17,6 @@ class DetailController(
     fun save(@RequestBody detailDto: DetailDto): DetailDto =
             detailService.save(detailDto = detailDto)
 
+    @PostMapping("delete")
+    fun delete(@RequestParam id: Long) = detailService.delete(id = id)
 }

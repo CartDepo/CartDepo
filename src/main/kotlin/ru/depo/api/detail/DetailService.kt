@@ -30,8 +30,5 @@ class DetailService(
                     )
             )
 
-    fun delete(detailDto: DetailDto) =
-            detailRepository.deleteById(detailDto.id
-                    ?: throw UnsupportedEntityException("УИД детали не задан"))
-
+    fun delete(id: Long) = detailRepository.deleteById(id)
 }
