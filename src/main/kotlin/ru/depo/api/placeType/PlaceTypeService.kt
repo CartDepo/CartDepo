@@ -22,7 +22,5 @@ class PlaceTypeService(
             )
 
     fun delete(placeTypeDto: PlaceTypeDto) =
-            placeTypeRepository.delete(
-                    placeTypeRepository.getOne(placeTypeDto.id ?: throw UnsupportedEntityException("УИД типа расположения не задан"))
-            )
+            placeTypeRepository.deleteById(placeTypeDto.id ?: throw UnsupportedEntityException("УИД типа расположения не задан"))
 }
