@@ -3,7 +3,7 @@ package ru.depo.api.client
 import javax.persistence.*
 
 @Entity
-@Table(name = "client", schema = "depo")
+@Table(name = "client", schema = "public")
 class Client(
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -14,11 +14,11 @@ class Client(
         val fio: String,
 
         @Column(name = "pasportserial")
-        val serial: Long,
+        val serial: String,
 
         @Column(name = "pasportnumber")
-        val number: Long,
+        val number: String,
 
         @Column(name = "phonenumber")
-        val phone: Long,
+        val phone: String,
 )

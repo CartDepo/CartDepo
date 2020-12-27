@@ -17,7 +17,7 @@ class DetailTypeService(
                     detailTypeRepository.save(
                             DetailType(
                                     name = detailTypeDto.name ?: throw UnsupportedEntityException("Название детали не задано"),
-                                    number = detailTypeDto.number ?: throw UnsupportedEntityException("Номер детали не задан")
+                                    amount = detailTypeDto.amount ?: throw UnsupportedEntityException("Количество деталей не задано")
                             )
                     )
             )

@@ -6,5 +6,6 @@ data class CartDto(
     val year: Int? = null,
     val contract: Long? = null,
     val foreman: Long? = null,
-    val place: Long? = null
+    val place: Long? = null,
+    val placeType: Long? = null
 )

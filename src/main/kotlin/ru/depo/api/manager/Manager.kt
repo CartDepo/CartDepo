@@ -3,7 +3,7 @@ package ru.depo.api.manager
 import javax.persistence.*
 
 @Entity
-@Table(name = "manager", schema = "depo")
+@Table(name = "manager", schema = "public")
 class Manager(
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -14,5 +14,5 @@ class Manager(
         val fio: String,
 
         @Column(name = "phonenumber")
-        val phone: Long,
+        val phone: String,
 )

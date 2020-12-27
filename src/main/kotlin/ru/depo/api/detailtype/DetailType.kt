@@ -3,7 +3,7 @@ package ru.depo.api.detailtype
 import javax.persistence.*
 
 @Entity
-@Table(name = "detailtype", schema = "depo")
+@Table(name = "detailtype", schema = "public")
 class DetailType(
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -11,8 +11,8 @@ class DetailType(
         val id: Long? = null,
 
         @Column(name = "name")
-        val name: String? = null,
+        val name: String,
 
-        @Column(name = "number")
-        val number: Long? = null
+        @Column(name = "amount")
+        val amount: Long
 )
