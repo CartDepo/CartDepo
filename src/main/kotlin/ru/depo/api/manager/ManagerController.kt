@@ -16,7 +16,7 @@ class ManagerController (
             managerService.save(managerDto = managerDto)
 
     @DeleteMapping("delete")
-    fun delete(managerDto: ManagerDto) =
-            managerService.delete(managerDto = managerDto)
+    fun delete(@RequestParam id: Long) =
+            managerService.delete(id = id)
 
 }

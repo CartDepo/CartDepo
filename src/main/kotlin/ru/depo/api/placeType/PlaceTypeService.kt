@@ -21,6 +21,6 @@ class PlaceTypeService(
                     )
             )
 
-    fun delete(placeTypeDto: PlaceTypeDto) =
-            placeTypeRepository.deleteById(placeTypeDto.id ?: throw UnsupportedEntityException("УИД типа расположения не задан"))
+    fun delete(id: Long) =
+            placeTypeRepository.deleteById(id)
 }

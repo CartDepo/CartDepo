@@ -22,6 +22,9 @@ class ManagerService(
                     )
             )
 
-    fun delete(managerDto: ManagerDto) =
-            managerRepository.deleteById(managerDto.id ?: throw UnsupportedEntityException("УИД менеджера не задан"))
+    fun delete(id: Long) =
+            managerRepository.deleteById(id)
+
+    fun getOne(id: Long) =
+            managerRepository.getOne(id)
 }

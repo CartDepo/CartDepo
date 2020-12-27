@@ -16,7 +16,7 @@ class PlaceTypeController (
             placeTypeService.save(placeTypeDto = placeTypeDto)
 
     @DeleteMapping("delete")
-    fun delete(placeTypeDto: PlaceTypeDto) =
-            placeTypeService.delete(placeTypeDto = placeTypeDto)
+    fun delete(@RequestParam id: Long) =
+            placeTypeService.delete(id = id)
 
 }

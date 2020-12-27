@@ -16,7 +16,7 @@ class DetailTypeController (
             detailTypeService.save(detailTypeDto = detailTypeDto)
 
     @DeleteMapping("delete")
-    fun delete(detailTypeDto: DetailTypeDto) =
-            detailTypeService.delete(detailTypeDto = detailTypeDto)
+    fun delete(@RequestParam id: Long) =
+            detailTypeService.delete(id = id)
 
 }

@@ -22,6 +22,6 @@ class DetailTypeService(
                     )
             )
 
-    fun delete(detailTypeDto: DetailTypeDto) =
-            detailTypeRepository.deleteById(detailTypeDto.id ?: throw UnsupportedEntityException("УИД типа расположения не задан"))
+    fun delete(id: Long) =
+            detailTypeRepository.deleteById(id)
 }

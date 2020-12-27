@@ -16,6 +16,6 @@ class ClientController(
             clientService.save(clientDto = clientDto)
 
     @DeleteMapping("delete")
-    fun delete(clientDto: ClientDto) =
-            clientService.delete(clientDto = clientDto)
+    fun delete(@RequestParam id: Long) =
+            clientService.delete(id = id)
 }
