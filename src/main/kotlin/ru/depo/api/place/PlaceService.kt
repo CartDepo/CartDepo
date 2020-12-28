@@ -33,4 +33,7 @@ class PlaceService(
 
     fun delete(id: Long) =
             placeRepository.deleteById(id)
+
+    fun getOne(id: Long): Place =
+        placeRepository.getOne(id)
 }

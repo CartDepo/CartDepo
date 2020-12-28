@@ -1,11 +1,16 @@
 package ru.depo.api.cart
 
+import ru.depo.api.contract.ContractDto
+import ru.depo.api.foreman.ForemanDto
+import ru.depo.api.place.PlaceDto
+import ru.depo.api.placeType.PlaceTypeDto
+
 data class CartDto(
     val id: Long? = null,
     val number: String? = null,
     val year: Int? = null,
-    val contract: Long? = null,
-    val foreman: Long? = null,
-    val place: Long? = null,
-    val placeType: Long? = null
+    val contract: ContractDto? = null,
+    val foreman: ForemanDto? = null,
+    val place: PlaceDto? = null,
+    val placeType: PlaceTypeDto? = null
 )
