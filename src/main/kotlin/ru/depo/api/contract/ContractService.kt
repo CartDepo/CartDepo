@@ -37,4 +37,7 @@ class ContractService(
 
     fun delete(id: Long) =
             contractRepository.deleteById(id)
+
+    fun getOne(id: Long): Contract =
+        contractRepository.getOne(id)
 }
