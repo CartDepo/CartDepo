@@ -4,9 +4,9 @@ import org.springframework.web.bind.annotation.*
 
 @RestController
 @RequestMapping("manager")
-class ManagerController (
+class ManagerController(
         private val managerService: ManagerService
-){
+) {
     @GetMapping("all")
     fun getAll(): List<ManagerDto> =
             managerService.getAll()

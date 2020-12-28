@@ -1,8 +1,7 @@
-package ru.depo.api.placeStatus
+package ru.depo.api.place.status
 
 import org.springframework.stereotype.Service
 import ru.depo.api.exeption.UnsupportedEntityException
-import ru.depo.api.placeType.PlaceType
 
 @Service
 class PlaceStatusService(
@@ -17,7 +16,8 @@ class PlaceStatusService(
             PlaceStatusMapper.toDto(
                     placeStatusRepository.save(
                             PlaceStatus(
-                                    name = placeStatusDto.name  ?: throw UnsupportedEntityException("Название статуса расположения не задан")
+                                    name = placeStatusDto.name
+                                            ?: throw UnsupportedEntityException("Название статуса расположения не задан")
                             )
                     )
             )

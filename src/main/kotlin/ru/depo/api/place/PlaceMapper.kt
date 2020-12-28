@@ -1,7 +1,7 @@
 package ru.depo.api.place
 
-import ru.depo.api.placeStatus.PlaceStatusMapper
-import ru.depo.api.placeType.PlaceTypeMapper
+import ru.depo.api.place.status.PlaceStatusMapper
+import ru.depo.api.place.type.PlaceTypeMapper
 
 object PlaceMapper {
     fun toDto(entity: Place): PlaceDto =

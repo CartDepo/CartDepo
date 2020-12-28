@@ -1,4 +1,4 @@
-package ru.depo.api.placeType
+package ru.depo.api.place.type
 
 import org.springframework.stereotype.Service
 import ru.depo.api.exeption.UnsupportedEntityException
@@ -16,7 +16,8 @@ class PlaceTypeService(
             PlaceTypeMapper.toDto(
                     placeTypeRepository.save(
                             PlaceType(
-                                    name = placeTypeDto.name  ?: throw UnsupportedEntityException("Название типа расположения не задан")
+                                    name = placeTypeDto.name
+                                            ?: throw UnsupportedEntityException("Название типа расположения не задан")
                             )
                     )
             )
@@ -25,5 +26,5 @@ class PlaceTypeService(
             placeTypeRepository.deleteById(id)
 
     fun getOne(id: Long): PlaceType =
-        placeTypeRepository.getOne(id)
+            placeTypeRepository.getOne(id)
 }

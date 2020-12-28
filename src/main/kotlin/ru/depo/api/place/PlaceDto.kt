@@ -1,7 +1,7 @@
 package ru.depo.api.place
 
-import ru.depo.api.placeStatus.PlaceStatusDto
-import ru.depo.api.placeType.PlaceTypeDto
+import ru.depo.api.place.status.PlaceStatusDto
+import ru.depo.api.place.type.PlaceTypeDto
 
 class PlaceDto(
         val id: Long? = null,

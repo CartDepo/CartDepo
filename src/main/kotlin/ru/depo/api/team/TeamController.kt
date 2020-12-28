@@ -4,9 +4,9 @@ import org.springframework.web.bind.annotation.*
 
 @RestController
 @RequestMapping("team")
-class TeamController (
+class TeamController(
         private val teamService: TeamService
-){
+) {
     @GetMapping("all")
     fun getAll(): List<TeamDto> =
             teamService.getAll()

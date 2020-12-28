@@ -1,13 +1,13 @@
-package ru.depo.api.placeType
+package ru.depo.api.place.status
 
 import javax.persistence.*
 
 @Entity
-@Table(name = "placetype", schema = "public")
-class PlaceType(
+@Table(name = "placestatus", schema = "public")
+class PlaceStatus(
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
-        @Column(name = "placetypeid")
+        @Column(name = "placestateid")
         val id: Long? = null,
 
         @Column(name = "name")

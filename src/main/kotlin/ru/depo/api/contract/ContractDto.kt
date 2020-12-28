@@ -9,7 +9,7 @@ import java.time.LocalDate
 class ContractDto(
         val id: Long? = null,
 
-        @JsonFormat(pattern="yyyy-MM-dd")
+        @JsonFormat(pattern = "yyyy-MM-dd")
         val contractDate: LocalDate? = null,
 
         val cost: BigDecimal? = null,

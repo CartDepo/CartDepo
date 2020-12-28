@@ -1,4 +1,4 @@
-package ru.depo.api.placeStatus
+package ru.depo.api.place.status
 
 object PlaceStatusMapper {
     fun toDto(entity: PlaceStatus): PlaceStatusDto =

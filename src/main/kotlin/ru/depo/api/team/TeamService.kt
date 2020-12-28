@@ -18,9 +18,11 @@ class TeamService(
             TeamMapper.toDto(
                     teamRepository.save(
                             Team(
-                                    number = teamDto.number  ?: throw UnsupportedEntityException("Номер бригады не задан"),
+                                    number = teamDto.number
+                                            ?: throw UnsupportedEntityException("Номер бригады не задан"),
                                     foreman = foremanService.getOne(
-                                            teamDto.foreman?.id  ?: throw UnsupportedEntityException("УИД бригадира не задан")
+                                            teamDto.foreman?.id
+                                                    ?: throw UnsupportedEntityException("УИД бригадира не задан")
                                     )
                             )
                     )

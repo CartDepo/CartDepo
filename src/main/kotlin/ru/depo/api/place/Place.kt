@@ -1,7 +1,7 @@
 package ru.depo.api.place
 
-import ru.depo.api.placeStatus.PlaceStatus
-import ru.depo.api.placeType.PlaceType
+import ru.depo.api.place.status.PlaceStatus
+import ru.depo.api.place.type.PlaceType
 import javax.persistence.*
 
 @Entity

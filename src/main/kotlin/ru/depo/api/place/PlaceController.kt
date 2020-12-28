@@ -4,9 +4,9 @@ import org.springframework.web.bind.annotation.*
 
 @RestController
 @RequestMapping("place")
-class PlaceController (
+class PlaceController(
         private val placeService: PlaceService
-){
+) {
     @GetMapping("all")
     fun getAll(): List<PlaceDto> =
             placeService.getAll()

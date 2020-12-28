@@ -1,6 +1,4 @@
-package ru.depo.api.placeType
-
-import javax.persistence.Column
+package ru.depo.api.place.type
 
 class PlaceTypeDto(
         val id: Long? = null,

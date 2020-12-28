@@ -1,10 +1,7 @@
 package ru.depo.api.detail
 
-import ru.depo.api.cart.CartDto
 import ru.depo.api.cart.CartMapper
-import ru.depo.api.detailtype.DetailType
-import ru.depo.api.detailtype.DetailTypeDto
-import ru.depo.api.detailtype.DetailTypeMapper
+import ru.depo.api.detail.type.DetailTypeMapper
 
 object DetailMapper {
     fun toDto(entity: Detail): DetailDto =

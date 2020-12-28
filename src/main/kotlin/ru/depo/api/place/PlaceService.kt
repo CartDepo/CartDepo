@@ -2,8 +2,8 @@ package ru.depo.api.place
 
 import org.springframework.stereotype.Service
 import ru.depo.api.exeption.UnsupportedEntityException
-import ru.depo.api.placeStatus.PlaceStatusService
-import ru.depo.api.placeType.PlaceTypeService
+import ru.depo.api.place.status.PlaceStatusService
+import ru.depo.api.place.type.PlaceTypeService
 
 @Service
 class PlaceService(
@@ -20,12 +20,15 @@ class PlaceService(
             PlaceMapper.toDto(
                     placeRepository.save(
                             Place(
-                                    number = placeDto.number  ?: throw UnsupportedEntityException("Название статуса расположения не задан"),
+                                    number = placeDto.number
+                                            ?: throw UnsupportedEntityException("Название статуса расположения не задан"),
                                     placeType = placeTypeService.getOne(
-                                            placeDto.placeType?.id  ?: throw UnsupportedEntityException("УИД типа расположения не задан")
+                                            placeDto.placeType?.id
+                                                    ?: throw UnsupportedEntityException("УИД типа расположения не задан")
                                     ),
                                     placeStatus = placeStatusService.getOne(
-                                            placeDto.placeStatus?.id  ?: throw UnsupportedEntityException("УИД статуса расположения не задан")
+                                            placeDto.placeStatus?.id
+                                                    ?: throw UnsupportedEntityException("УИД статуса расположения не задан")
                                     )
                             )
                     )
@@ -35,5 +38,5 @@ class PlaceService(
             placeRepository.deleteById(id)
 
     fun getOne(id: Long): Place =
-        placeRepository.getOne(id)
+            placeRepository.getOne(id)
 }

@@ -1,6 +1,4 @@
-package ru.depo.api.placeStatus
-
-import javax.persistence.Column
+package ru.depo.api.place.status
 
 class PlaceStatusDto(
         val id: Long? = null,

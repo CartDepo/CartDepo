@@ -16,8 +16,9 @@ class ForemanService(
             ForemanMapper.toDto(
                     foremanRepository.save(
                             Foreman(
-                                    fio = foremanDto.fio  ?: throw UnsupportedEntityException("ФИО бригадира не заданы"),
-                                    phone = foremanDto.phone  ?: throw UnsupportedEntityException("Номер бригадира не задан")
+                                    fio = foremanDto.fio ?: throw UnsupportedEntityException("ФИО бригадира не заданы"),
+                                    phone = foremanDto.phone
+                                            ?: throw UnsupportedEntityException("Номер бригадира не задан")
                             )
                     )
             )

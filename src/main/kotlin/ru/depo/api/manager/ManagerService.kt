@@ -16,8 +16,9 @@ class ManagerService(
             ManagerMapper.toDto(
                     managerRepository.save(
                             Manager(
-                                    fio = managerDto.fio  ?: throw UnsupportedEntityException("ФИО менеджера не заданы"),
-                                    phone = managerDto.phone  ?: throw UnsupportedEntityException("Номер телефона менеджера не задан")
+                                    fio = managerDto.fio ?: throw UnsupportedEntityException("ФИО менеджера не заданы"),
+                                    phone = managerDto.phone
+                                            ?: throw UnsupportedEntityException("Номер телефона менеджера не задан")
                             )
                     )
             )

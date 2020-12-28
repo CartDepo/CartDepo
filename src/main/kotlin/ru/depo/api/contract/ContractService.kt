@@ -1,10 +1,8 @@
 package ru.depo.api.contract
 
 import org.springframework.stereotype.Service
-import ru.depo.api.client.ClientMapper
 import ru.depo.api.client.ClientService
 import ru.depo.api.exeption.UnsupportedEntityException
-import ru.depo.api.manager.ManagerMapper
 import ru.depo.api.manager.ManagerService
 
 @Service
@@ -22,14 +20,19 @@ class ContractService(
             ContractMapper.toDto(
                     contractRepository.save(
                             Contract(
-                                    contractDate = contractDto.contractDate  ?: throw UnsupportedEntityException("Дата договора не задана"),
-                                    cost = contractDto.cost  ?: throw UnsupportedEntityException("Стоимость ремонта в договоре не задана"),
-                                    number = contractDto.number  ?: throw UnsupportedEntityException("Номер договора не задан"),
+                                    contractDate = contractDto.contractDate
+                                            ?: throw UnsupportedEntityException("Дата договора не задана"),
+                                    cost = contractDto.cost
+                                            ?: throw UnsupportedEntityException("Стоимость ремонта в договоре не задана"),
+                                    number = contractDto.number
+                                            ?: throw UnsupportedEntityException("Номер договора не задан"),
                                     client = clientService.getOne(
-                                            contractDto.client?.id  ?: throw UnsupportedEntityException("УИД клиента в договоре не задан")
+                                            contractDto.client?.id
+                                                    ?: throw UnsupportedEntityException("УИД клиента в договоре не задан")
                                     ),
                                     manager = managerService.getOne(
-                                            contractDto.manager?.id  ?: throw UnsupportedEntityException("УИД менеджера в договоре не задан")
+                                            contractDto.manager?.id
+                                                    ?: throw UnsupportedEntityException("УИД менеджера в договоре не задан")
                                     )
                             )
                     )
@@ -39,5 +42,5 @@ class ContractService(
             contractRepository.deleteById(id)
 
     fun getOne(id: Long): Contract =
-        contractRepository.getOne(id)
+            contractRepository.getOne(id)
 }

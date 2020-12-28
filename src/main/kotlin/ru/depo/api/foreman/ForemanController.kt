@@ -4,9 +4,9 @@ import org.springframework.web.bind.annotation.*
 
 @RestController
 @RequestMapping("foreman")
-class ForemanController (
+class ForemanController(
         private val foremanService: ForemanService
-){
+) {
     @GetMapping("all")
     fun getAll(): List<ForemanDto> =
             foremanService.getAll()
