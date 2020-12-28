@@ -5,7 +5,7 @@ import ru.depo.api.contract.ContractService
 import ru.depo.api.exeption.UnsupportedEntityException
 import ru.depo.api.foreman.ForemanService
 import ru.depo.api.place.PlaceService
-import ru.depo.api.placeType.PlaceTypeService
+import ru.depo.api.place.type.PlaceTypeService
 
 @Service
 class CartService(

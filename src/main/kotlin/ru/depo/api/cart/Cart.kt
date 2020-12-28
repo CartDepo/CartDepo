@@ -3,7 +3,7 @@ package ru.depo.api.cart
 import ru.depo.api.contract.Contract
 import ru.depo.api.foreman.Foreman
 import ru.depo.api.place.Place
-import ru.depo.api.placeType.PlaceType
+import ru.depo.api.place.type.PlaceType
 import javax.persistence.*
 
 @Entity

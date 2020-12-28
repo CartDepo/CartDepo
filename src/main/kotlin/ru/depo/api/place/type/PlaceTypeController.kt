@@ -1,12 +1,12 @@
-package ru.depo.api.placeType
+package ru.depo.api.place.type
 
 import org.springframework.web.bind.annotation.*
 
 @RestController
 @RequestMapping("place-type")
-class PlaceTypeController (
+class PlaceTypeController(
         private val placeTypeService: PlaceTypeService
-){
+) {
     @GetMapping("all")
     fun getAll(): List<PlaceTypeDto> =
             placeTypeService.getAll()

@@ -1,4 +1,4 @@
-package ru.depo.api.placeType
+package ru.depo.api.place.type
 
 object PlaceTypeMapper {
     fun toDto(entity: PlaceType): PlaceTypeDto =

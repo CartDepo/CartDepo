@@ -3,7 +3,7 @@ package ru.depo.api.cart
 import ru.depo.api.contract.ContractMapper
 import ru.depo.api.foreman.ForemanMapper
 import ru.depo.api.place.PlaceMapper
-import ru.depo.api.placeType.PlaceTypeMapper
+import ru.depo.api.place.type.PlaceTypeMapper
 
 object CartMapper {
     fun toDto(entity: Cart): CartDto =

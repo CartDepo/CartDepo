@@ -1,8 +1,6 @@
 package ru.depo.api.detail
 
 import org.springframework.web.bind.annotation.*
-import ru.depo.api.cart.CartDto
-import ru.depo.api.cart.CartService
 
 @RestController
 @RequestMapping("detail")

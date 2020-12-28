@@ -1,4 +1,4 @@
-package ru.depo.api.detailtype
+package ru.depo.api.detail.type
 
 import javax.persistence.*
 

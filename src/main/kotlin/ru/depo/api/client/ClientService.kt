@@ -16,10 +16,14 @@ class ClientService(
             ClientMapper.toDto(
                     clientRepository.save(
                             Client(
-                                    fio = clientDto.fio  ?: throw UnsupportedEntityException("ФИО клиента расположения не задан"),
-                                    serial = clientDto.serial  ?: throw UnsupportedEntityException("Серия паспорта клиента не задана"),
-                                    number = clientDto.number  ?: throw UnsupportedEntityException("Номер паспорта клиента не задан"),
-                                    phone = clientDto.phone  ?: throw UnsupportedEntityException("Телефон клиента не задан")
+                                    fio = clientDto.fio
+                                            ?: throw UnsupportedEntityException("ФИО клиента расположения не задан"),
+                                    serial = clientDto.serial
+                                            ?: throw UnsupportedEntityException("Серия паспорта клиента не задана"),
+                                    number = clientDto.number
+                                            ?: throw UnsupportedEntityException("Номер паспорта клиента не задан"),
+                                    phone = clientDto.phone
+                                            ?: throw UnsupportedEntityException("Телефон клиента не задан")
                             )
                     )
             )

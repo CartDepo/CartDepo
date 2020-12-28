@@ -1,7 +1,7 @@
 package ru.depo.api.detail
 
 import ru.depo.api.cart.Cart
-import ru.depo.api.detailtype.DetailType
+import ru.depo.api.detail.type.DetailType
 import javax.persistence.*
 
 @Entity

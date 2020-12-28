@@ -2,7 +2,7 @@ package ru.depo.api.detail
 
 import org.springframework.stereotype.Service
 import ru.depo.api.cart.CartService
-import ru.depo.api.detailtype.DetailTypeService
+import ru.depo.api.detail.type.DetailTypeService
 import ru.depo.api.exeption.UnsupportedEntityException
 
 @Service

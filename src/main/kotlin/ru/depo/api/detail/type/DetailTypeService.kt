@@ -1,4 +1,4 @@
-package ru.depo.api.detailtype
+package ru.depo.api.detail.type
 
 import org.springframework.stereotype.Service
 import ru.depo.api.exeption.UnsupportedEntityException
@@ -16,8 +16,10 @@ class DetailTypeService(
             DetailTypeMapper.toDto(
                     detailTypeRepository.save(
                             DetailType(
-                                    name = detailTypeDto.name ?: throw UnsupportedEntityException("Название детали не задано"),
-                                    amount = detailTypeDto.amount ?: throw UnsupportedEntityException("Количество деталей не задано")
+                                    name = detailTypeDto.name
+                                            ?: throw UnsupportedEntityException("Название детали не задано"),
+                                    amount = detailTypeDto.amount
+                                            ?: throw UnsupportedEntityException("Количество деталей не задано")
                             )
                     )
             )

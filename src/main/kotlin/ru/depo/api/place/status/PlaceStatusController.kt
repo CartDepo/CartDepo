@@ -1,12 +1,12 @@
-package ru.depo.api.placeStatus
+package ru.depo.api.place.status
 
 import org.springframework.web.bind.annotation.*
 
 @RestController
 @RequestMapping("place-status")
-class PlaceStatusController (
+class PlaceStatusController(
         private val placeStatusService: PlaceStatusService
-){
+) {
     @GetMapping("all")
     fun getAll(): List<PlaceStatusDto> =
             placeStatusService.getAll()
