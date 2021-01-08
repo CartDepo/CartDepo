@@ -1,6 +1,7 @@
 package ru.depo.api.contract
 
 import ru.depo.api.client.Client
+import ru.depo.api.contract.status.ContractStatus
 import ru.depo.api.manager.Manager
 import java.math.BigDecimal
 import java.time.LocalDate
@@ -30,4 +31,8 @@ class Contract(
         @JoinColumn(name = "managerid")
         @ManyToOne(fetch = FetchType.EAGER)
         val manager: Manager,
+
+        @JoinColumn(name = "contractstatus")
+        @ManyToOne(fetch = FetchType.EAGER)
+        val status: ContractStatus,
 )
