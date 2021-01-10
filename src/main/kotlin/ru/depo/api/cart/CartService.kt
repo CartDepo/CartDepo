@@ -1,12 +1,14 @@
 package ru.depo.api.cart
 
+import org.springframework.data.repository.findByIdOrNull
+import org.springframework.data.repository.query.Param
 import org.springframework.stereotype.Service
 import ru.depo.api.contract.ContractService
 import ru.depo.api.exeption.UnsupportedEntityException
-import ru.depo.api.foreman.ForemanService
 import ru.depo.api.place.PlaceService
 import ru.depo.api.place.type.PlaceTypeService
 import ru.depo.api.team.TeamService
+import javax.persistence.EntityNotFoundException
 
 @Service
 class CartService(
@@ -39,4 +41,15 @@ class CartService(
             ?: throw UnsupportedEntityException("УИД вагона не задан"))
 
     fun getOne(cartId: Long) = cartRepository.getOne(cartId)
+
+    fun changeCartTeam(cartId: Long, teamId: Long): CartDto {
+        cartRepository.changeCartTeam(cartId, teamId)
+        return cartRepository.findByIdOrNull(cartId)?.let { CartMapper.toDto(it) } ?: throw EntityNotFoundException("Не найден вагон с УИД=$cartId")
+    }
+
+    fun changePlace(cartId: Long, placeId: Long): CartDto{
+        cartRepository.changePlace(cartId, placeId)
+        return cartRepository.findByIdOrNull(cartId)?.let { CartMapper.toDto(it) } ?: throw EntityNotFoundException("Не найден вагон с УИД=$cartId")
+    }
+
 }

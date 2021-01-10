@@ -19,4 +19,7 @@ class PlaceController(
     fun delete(@RequestParam id: Long) =
             placeService.delete(id = id)
 
+    @GetMapping("change-status")
+    fun changePlaceStatus(@RequestParam placeId: Long, @RequestParam placeStatusId: Long): PlaceDto =
+            placeService.changePlaceStatus(placeId, placeStatusId)
 }

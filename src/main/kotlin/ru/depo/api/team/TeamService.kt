@@ -33,4 +33,9 @@ class TeamService(
 
     fun getOne(id: Long) =
             teamRepository.getOne(id)
+
+    fun getTeamByPredicate(number: String?, foremanId: Long?): List<TeamDto> =
+            teamRepository.getTeamByPredicate(number = number, foremanId = foremanId).map {
+                TeamMapper.toDto(it)
+            }
 }

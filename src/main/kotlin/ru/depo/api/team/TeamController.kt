@@ -19,4 +19,7 @@ class TeamController(
     fun delete(@RequestParam id: Long) =
             teamService.delete(id = id)
 
+    @GetMapping("all-by-predicate")
+    fun getAllByPredicate(@RequestParam number: String?, @RequestParam foremanId: Long?): List<TeamDto> =
+            teamService.getTeamByPredicate(number = number, foremanId = foremanId)
 }

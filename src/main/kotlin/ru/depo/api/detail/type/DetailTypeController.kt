@@ -18,4 +18,8 @@ class DetailTypeController(
     @DeleteMapping("delete")
     fun delete(@RequestParam id: Long) =
             detailTypeService.delete(id = id)
+
+    @GetMapping("add")
+    fun addDetail(@RequestParam detailTypeId: Long, @RequestParam amount: Long): DetailTypeDto =
+            detailTypeService.addDetail(detailTypeId, amount)
 }

@@ -1,5 +1,6 @@
 package ru.depo.api.foreman
 
+import org.springframework.data.repository.query.Param
 import org.springframework.stereotype.Service
 import ru.depo.api.exeption.UnsupportedEntityException
 
