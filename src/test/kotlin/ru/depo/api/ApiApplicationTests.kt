@@ -114,6 +114,13 @@ class ApiApplicationTests(
 
         cartService?.changeCartTeam(1, 1)
         cartService?.changePlace(1, 1)
-    }
 
+        contractService?.addContract(
+                contractDate = "2020-10-10",
+                cost = 500000,
+                number = "10000",
+                clientid = 1,
+                managerid = 1
+        )
+    }
 }
