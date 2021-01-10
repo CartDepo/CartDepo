@@ -12,6 +12,5 @@ data class CartDto(
         val year: Int? = null,
         val contract: ContractDto? = null,
         val team: TeamDto? = null,
-        val place: PlaceDto? = null,
-        val placeType: PlaceTypeDto? = null
+        val place: PlaceDto? = null
 )

@@ -32,7 +32,7 @@ class Contract(
         @ManyToOne(fetch = FetchType.EAGER)
         val manager: Manager,
 
-        @JoinColumn(name = "contractstatus")
+        @JoinColumn(name = "contractstatusid")
         @ManyToOne(fetch = FetchType.EAGER)
         val status: ContractStatus,
 )

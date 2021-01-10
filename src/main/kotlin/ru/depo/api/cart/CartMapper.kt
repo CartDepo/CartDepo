@@ -14,7 +14,6 @@ object CartMapper {
                     year = entity.year,
                     contract = ContractMapper.toDto(entity.contract),
                     team = entity.team?.let { TeamMapper.toDto(it) } ,
-                    place = PlaceMapper.toDto(entity.place),
-                    placeType = PlaceTypeMapper.toDto(entity.placeType)
+                    place = PlaceMapper.toDto(entity.place)
             )
 }

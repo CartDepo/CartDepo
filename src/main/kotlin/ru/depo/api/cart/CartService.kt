@@ -31,10 +31,7 @@ class CartService(
                             team = teamService.getOne(cartDto.team?.id
                                     ?: throw UnsupportedEntityException("УИД бригады вагона не задан")),
                             place = placeService.getOne(cartDto.place?.id
-                                    ?: throw UnsupportedEntityException("УИД расположения вагона не задан")),
-                            placeType = placeTypeService.getOne(cartDto.placeType?.id
-                                    ?: throw UnsupportedEntityException("УИД типа расположения вагона не задан"))
-
+                                    ?: throw UnsupportedEntityException("УИД расположения вагона не задан"))
                     )
             ))
 
