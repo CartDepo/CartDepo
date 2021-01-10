@@ -1,9 +1,12 @@
 package ru.depo.api.detail
 
+import org.springframework.data.repository.findByIdOrNull
+import org.springframework.data.repository.query.Param
 import org.springframework.stereotype.Service
 import ru.depo.api.cart.CartService
 import ru.depo.api.detail.type.DetailTypeService
 import ru.depo.api.exeption.UnsupportedEntityException
+import javax.persistence.EntityNotFoundException
 
 @Service
 class DetailService(
@@ -31,4 +34,11 @@ class DetailService(
             )
 
     fun delete(id: Long) = detailRepository.deleteById(id)
+
+    fun addDetailToCart(detailTypeId: Long, cartId: Long, serialNumber: String): DetailDto {
+        detailRepository.addDetailToCart(detailTypeId, cartId, serialNumber)
+        return detailRepository.findByIdOrNull(detailTypeId)?.let {
+            DetailMapper.toDto(it)
+        } ?: throw EntityNotFoundException("Деталь с УИД=$detailTypeId не найдена")
+    }
 }
