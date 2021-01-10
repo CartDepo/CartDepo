@@ -3,7 +3,6 @@ package ru.depo.api.cart
 import org.springframework.stereotype.Service
 import ru.depo.api.contract.ContractService
 import ru.depo.api.exeption.UnsupportedEntityException
-import ru.depo.api.foreman.ForemanService
 import ru.depo.api.place.PlaceService
 import ru.depo.api.place.type.PlaceTypeService
 import ru.depo.api.team.TeamService
@@ -39,4 +38,15 @@ class CartService(
             ?: throw UnsupportedEntityException("УИД вагона не задан"))
 
     fun getOne(cartId: Long) = cartRepository.getOne(cartId)
+
+    fun addCart(number: String, cartyear: Int, contractid: Long, clientid: Long, placeid: Long, teamid: Long) {
+        cartRepository.addCart(
+            number = number,
+            cartyear = cartyear,
+            contractid = contractid,
+            clientid = clientid,
+            placeid = placeid,
+            teamid = teamid
+        )
+    }
 }

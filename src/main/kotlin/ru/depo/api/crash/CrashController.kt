@@ -5,16 +5,31 @@ import org.springframework.web.bind.annotation.*
 @RestController
 @RequestMapping("crash")
 class CrashController(
-        private val crashService: CrashService
+    private val crashService: CrashService
 ) {
     @GetMapping("all")
     fun findAll(): List<CrashDto> =
-            crashService.getAll()
+        crashService.getAll()
 
     @PostMapping("save")
     fun save(@RequestBody crashDto: CrashDto): CrashDto =
-            crashService.save(crashDto = crashDto)
+        crashService.save(crashDto = crashDto)
 
     @PostMapping("delete")
     fun delete(@RequestParam id: Long) = crashService.delete(id = id)
+
+    @GetMapping("add")
+    fun addCrash(
+        @RequestParam description: String,
+        @RequestParam cartid: Long,
+        @RequestParam typeid: Long,
+        @RequestParam crashstatusid: Long
+    ) {
+        crashService.addCrash(
+            description = description,
+            cartid = cartid,
+            typeid = typeid,
+            crashstatusid = crashstatusid
+        )
+    }
 }
