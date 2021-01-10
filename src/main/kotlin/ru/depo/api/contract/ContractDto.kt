@@ -2,6 +2,7 @@ package ru.depo.api.contract
 
 import com.fasterxml.jackson.annotation.JsonFormat
 import ru.depo.api.client.ClientDto
+import ru.depo.api.contract.status.ContractStatusDto
 import ru.depo.api.manager.ManagerDto
 import java.math.BigDecimal
 import java.time.LocalDate
@@ -15,5 +16,6 @@ class ContractDto(
         val cost: BigDecimal? = null,
         val number: String? = null,
         val client: ClientDto? = null,
-        val manager: ManagerDto? = null
+        val manager: ManagerDto? = null,
+        val status: ContractStatusDto? = null
 )

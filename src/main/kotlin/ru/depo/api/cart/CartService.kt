@@ -6,12 +6,13 @@ import ru.depo.api.exeption.UnsupportedEntityException
 import ru.depo.api.foreman.ForemanService
 import ru.depo.api.place.PlaceService
 import ru.depo.api.place.type.PlaceTypeService
+import ru.depo.api.team.TeamService
 
 @Service
 class CartService(
         private val cartRepository: CartRepository,
         private val contractService: ContractService,
-        private val foremanService: ForemanService,
+        private val teamService: TeamService,
         private val placeService: PlaceService,
         private val placeTypeService: PlaceTypeService
 ) {
@@ -27,8 +28,8 @@ class CartService(
                             year = cartDto.year ?: throw UnsupportedEntityException("Год вагона не задан"),
                             contract = contractService.getOne(cartDto.contract?.id
                                     ?: throw UnsupportedEntityException("УИД договора вагона не задан")),
-                            foreman = foremanService.getOne(cartDto.foreman?.id
-                                    ?: throw UnsupportedEntityException("УИД бригадира вагона не задан")),
+                            team = teamService.getOne(cartDto.team?.id
+                                    ?: throw UnsupportedEntityException("УИД бригады вагона не задан")),
                             place = placeService.getOne(cartDto.place?.id
                                     ?: throw UnsupportedEntityException("УИД расположения вагона не задан")),
                             placeType = placeTypeService.getOne(cartDto.placeType?.id

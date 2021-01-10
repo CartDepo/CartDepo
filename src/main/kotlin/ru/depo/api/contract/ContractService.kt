@@ -2,6 +2,7 @@ package ru.depo.api.contract
 
 import org.springframework.stereotype.Service
 import ru.depo.api.client.ClientService
+import ru.depo.api.contract.status.ContractStatusService
 import ru.depo.api.exeption.UnsupportedEntityException
 import ru.depo.api.manager.ManagerService
 
@@ -9,7 +10,8 @@ import ru.depo.api.manager.ManagerService
 class ContractService(
         private val contractRepository: ContractRepository,
         private val clientService: ClientService,
-        private val managerService: ManagerService
+        private val managerService: ManagerService,
+        private val contractStatusService: ContractStatusService
 ) {
     fun getAll(): List<ContractDto> =
             contractRepository.findAll().map {
@@ -33,6 +35,10 @@ class ContractService(
                                     manager = managerService.getOne(
                                             contractDto.manager?.id
                                                     ?: throw UnsupportedEntityException("УИД менеджера в договоре не задан")
+                                    ),
+                                    status = contractStatusService.getOne(
+                                            contractDto.status?.id
+                                                    ?: throw UnsupportedEntityException("УИД статуса договора не задан")
                                     )
                             )
                     )
