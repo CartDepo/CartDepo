@@ -21,10 +21,11 @@ class PlaceController(
 
     @GetMapping("change-status")
     fun changePlaceStatus(@RequestParam placeId: Long, @RequestParam placeStatusId: Long): PlaceDto =
-            placeService.changePlaceStatus(placeId, placeStatusId)
+        placeService.changePlaceStatus(placeId, placeStatusId)
+
     @GetMapping("getplacebyplacetype")
-    fun getPlaceByPlaceType(@RequestParam placeType: String) = placeService.getPlaceByPlaceType(placeType)
+    fun getPlaceByPlaceType(@RequestParam placeType: Long) = placeService.getPlaceByPlaceType(placeType)
 
     @GetMapping("getplacebyplacestatus")
-    fun getPlaceByPlaceStatus(@RequestParam placeStatus: String) = placeService.getPlaceByPlaceStatus(placeStatus)
+    fun getPlaceByPlaceStatus(@RequestParam placeStatus: Long) = placeService.getPlaceByPlaceStatus(placeStatus)
 }
