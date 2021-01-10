@@ -26,8 +26,7 @@ class ContractController(
         @RequestParam cost: Long,
         @RequestParam number: String,
         @RequestParam clientid: Long,
-        @RequestParam managerid: Long,
-        @RequestParam contractstatusid: Long
+        @RequestParam managerid: Long
     ) {
         contractService.addContract(
             contractDate = contractdate,
@@ -35,7 +34,6 @@ class ContractController(
             number = number,
             clientid = clientid,
             managerid = managerid,
-            contractstatusid = contractstatusid
         )
     }
 }

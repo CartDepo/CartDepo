@@ -56,8 +56,7 @@ class ContractService(
         cost: Long,
         number: String,
         clientid: Long,
-        managerid: Long,
-        contractstatusid: Long
+        managerid: Long
     ) {
         contractRepository.addContract(
             contractdate = LocalDate.parse(contractDate),
@@ -65,7 +64,7 @@ class ContractService(
             number = number,
             clientid = clientid,
             managerid = managerid,
-            contractstatusid = contractstatusid,
+            contractstatusid = 1,
         )
     }
 }
