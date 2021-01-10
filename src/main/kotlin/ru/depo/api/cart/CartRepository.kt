@@ -17,5 +17,8 @@ interface CartRepository : JpaRepository<Cart, Long>{
     @Query(nativeQuery = true, value = "call changePlace(:cartIdI, :placeIdI);")
     fun changePlace(@Param("cartIdI") cartId: Long, @Param("placeIdI") placeId: Long)
 
-
+    @Transactional
+    @Modifying(clearAutomatically = true)
+    @Query(nativeQuery = true, value = "CALL addcart(:number, :cartyear, :contractid, :clientid, :placeid, :teamid)")
+    fun addCart(number: String, cartyear: Int, contractid: Long, clientid: Long, placeid: Long, teamid: Long)
 }

@@ -37,6 +37,15 @@ class CrashService(
 
     fun delete(id: Long) = crashRepository.deleteById(id)
 
+    fun addCrash(description: String, cartid: Long, typeid: Long, crashstatusid: Long) {
+        crashRepository.addCrash(
+            description = description,
+            cartid = cartid,
+            typeid = typeid,
+            crashstatusid = crashstatusid
+        )
+    }
+
     fun changeStatus(crashId: Long, statusId: Long): CrashDto? {
         crashRepository.changeCrashStatus(crashId = crashId, statusId = statusId)
 

@@ -21,4 +21,19 @@ class CrashController(
     @GetMapping("change-status")
     fun changeStatus(@RequestParam crashId: Long, @RequestParam statusId: Long) =
             crashService.changeStatus(crashId = crashId, statusId = statusId)
+
+    @GetMapping("add")
+    fun addCrash(
+        @RequestParam description: String,
+        @RequestParam cartid: Long,
+        @RequestParam typeid: Long,
+        @RequestParam crashstatusid: Long
+    ) {
+        crashService.addCrash(
+            description = description,
+            cartid = cartid,
+            typeid = typeid,
+            crashstatusid = crashstatusid
+        )
+    }
 }
