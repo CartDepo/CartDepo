@@ -19,7 +19,7 @@ class Place(
         @ManyToOne(fetch = FetchType.EAGER)
         val placeType: PlaceType,
 
-        @JoinColumn(name = "placestatusid")
+        @JoinColumn(name = "placestateid")
         @ManyToOne(fetch = FetchType.EAGER)
         val placeStatus: PlaceStatus,
 )

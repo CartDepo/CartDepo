@@ -31,9 +31,5 @@ class Cart(
 
         @JoinColumn(name = "placeid")
         @ManyToOne(fetch = FetchType.EAGER)
-        val place: Place,
-
-        @JoinColumn(name = "placetype")
-        @ManyToOne(fetch = FetchType.EAGER)
-        val placeType: PlaceType
+        val place: Place
 )

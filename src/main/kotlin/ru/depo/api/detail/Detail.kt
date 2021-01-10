@@ -20,6 +20,6 @@ class Detail(
         val detailType: DetailType,
 
         @ManyToOne(fetch = FetchType.EAGER)
-        @JoinColumn(name = "cart")
+        @JoinColumn(name = "cartid")
         val cart: Cart
 )
