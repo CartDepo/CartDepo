@@ -15,4 +15,12 @@ class CartController(
     fun save(@RequestBody cartDto: CartDto): CartDto =
             cartService.save(cartDto = cartDto)
 
+    @GetMapping("change-team")
+    fun changeTeam(@RequestParam cartId : Long, @RequestParam teamId : Long): CartDto? =
+            cartService.changeCartTeam(cartId, teamId)
+
+    @GetMapping("change-place")
+    fun changePlace(@RequestParam cartId: Long, @RequestParam placeId: Long): CartDto =
+            cartService.changePlace(cartId, placeId)
+
 }

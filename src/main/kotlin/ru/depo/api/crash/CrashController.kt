@@ -17,4 +17,8 @@ class CrashController(
 
     @PostMapping("delete")
     fun delete(@RequestParam id: Long) = crashService.delete(id = id)
+
+    @GetMapping("change-status")
+    fun changeStatus(@RequestParam crashId: Long, @RequestParam statusId: Long) =
+            crashService.changeStatus(crashId = crashId, statusId = statusId)
 }

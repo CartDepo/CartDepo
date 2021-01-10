@@ -1,9 +1,11 @@
 package ru.depo.api.place
 
+import org.springframework.data.repository.findByIdOrNull
 import org.springframework.stereotype.Service
 import ru.depo.api.exeption.UnsupportedEntityException
 import ru.depo.api.place.status.PlaceStatusService
 import ru.depo.api.place.type.PlaceTypeService
+import javax.persistence.EntityNotFoundException
 
 @Service
 class PlaceService(
@@ -35,8 +37,21 @@ class PlaceService(
             )
 
     fun delete(id: Long) =
-            placeRepository.deleteById(id)
+        placeRepository.deleteById(id)
 
     fun getOne(id: Long): Place =
             placeRepository.getOne(id)
+
+    fun changePlaceStatus(placeId: Long, placeStatusId: Long): PlaceDto {
+        placeRepository.changePlaceStatus(placeId, placeStatusId)
+        return placeRepository.findByIdOrNull(placeId)?.let {
+            PlaceMapper.toDto(it)
+        } ?: throw EntityNotFoundException("Расположение c УИД=$placeId не найдено")
+    }
+
+    fun getPlaceByPlaceType(placeType: String) =
+            placeRepository.getPlaceByPlaceType(placeType).map(PlaceMapper::toDto)
+
+    fun getPlaceByPlaceStatus(placeStatus: String) = placeRepository.getPlaceByPlaceStatus(placeStatus)
+            .map(PlaceMapper::toDto)
 }

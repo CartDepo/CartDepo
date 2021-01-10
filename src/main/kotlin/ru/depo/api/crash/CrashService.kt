@@ -1,5 +1,6 @@
 package ru.depo.api.crash
 
+import org.springframework.data.repository.findByIdOrNull
 import org.springframework.stereotype.Service
 import ru.depo.api.cart.CartService
 import ru.depo.api.crash.status.CrashStatusService
@@ -35,4 +36,10 @@ class CrashService(
             )
 
     fun delete(id: Long) = crashRepository.deleteById(id)
+
+    fun changeStatus(crashId: Long, statusId: Long): CrashDto? {
+        crashRepository.changeCrashStatus(crashId = crashId, statusId = statusId)
+
+        return crashRepository.findByIdOrNull(crashId)?.let { CrashMapper.toDto(it) }
+    }
 }

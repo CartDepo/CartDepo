@@ -1,7 +1,10 @@
 package ru.depo.api.detail.type
 
+import org.springframework.data.repository.findByIdOrNull
+import org.springframework.data.repository.query.Param
 import org.springframework.stereotype.Service
 import ru.depo.api.exeption.UnsupportedEntityException
+import javax.persistence.EntityNotFoundException
 
 @Service
 class DetailTypeService(
@@ -28,4 +31,10 @@ class DetailTypeService(
             detailTypeRepository.deleteById(id)
 
     fun getOne(detailTypeId: Long) = detailTypeRepository.getOne(detailTypeId)
+
+    fun addDetail(detailTypeId: Long, amount: Long): DetailTypeDto {
+        detailTypeRepository.addDetail(detailTypeId, amount)
+        return detailTypeRepository.findByIdOrNull(detailTypeId)?.let {DetailTypeMapper.toDto(it)} ?: throw EntityNotFoundException("Деталь с УИД=$detailTypeId не найдена")
+    }
+
 }
