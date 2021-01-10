@@ -32,7 +32,12 @@ class TeamService(
         teamRepository.deleteById(id)
 
     fun getOne(id: Long) =
-        teamRepository.getOne(id)
+            teamRepository.getOne(id)
+
+    fun getTeamByPredicate(number: String?, foremanId: Long?): List<TeamDto> =
+            teamRepository.getTeamByPredicate(number = number, foremanId = foremanId).map {
+                TeamMapper.toDto(it)
+            }
 
     fun getFreeTeam() = teamRepository.getFreeTeam().map(TeamMapper::toDto)
 }

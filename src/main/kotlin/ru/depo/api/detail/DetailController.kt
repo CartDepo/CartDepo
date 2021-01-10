@@ -17,4 +17,8 @@ class DetailController(
 
     @PostMapping("delete")
     fun delete(@RequestParam id: Long) = detailService.delete(id = id)
+
+    @GetMapping("add-to-cart")
+    fun addDetailToCart(@RequestParam detailTypeId: Long, @RequestParam cartId: Long, @RequestParam serialNumber: String): DetailDto =
+            detailService.addDetailToCart(detailTypeId, cartId, serialNumber)
 }

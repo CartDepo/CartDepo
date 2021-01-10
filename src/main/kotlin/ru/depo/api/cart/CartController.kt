@@ -5,15 +5,15 @@ import org.springframework.web.bind.annotation.*
 @RestController
 @RequestMapping("cart")
 class CartController(
-    private val cartService: CartService
+        private val cartService: CartService
 ) {
     @GetMapping("all")
     fun findAll(): List<CartDto> =
-        cartService.getAll()
+            cartService.getAll()
 
     @PostMapping("save")
     fun save(@RequestBody cartDto: CartDto): CartDto =
-        cartService.save(cartDto = cartDto)
+            cartService.save(cartDto = cartDto)
 
     @GetMapping("add")
     fun addCart(
@@ -26,4 +26,13 @@ class CartController(
     ) {
         cartService.addCart(number, cartyear, contractid, clientid, placeid, teamid)
     }
+
+    @GetMapping("change-team")
+    fun changeTeam(@RequestParam cartId : Long, @RequestParam teamId : Long): CartDto? =
+            cartService.changeCartTeam(cartId, teamId)
+
+    @GetMapping("change-place")
+    fun changePlace(@RequestParam cartId: Long, @RequestParam placeId: Long): CartDto =
+            cartService.changePlace(cartId, placeId)
+
 }

@@ -18,5 +18,4 @@ class CrashStatusController(
     @DeleteMapping("delete")
     fun delete(@RequestParam id: Long) =
             crashStatusService.delete(id = id)
-
 }
