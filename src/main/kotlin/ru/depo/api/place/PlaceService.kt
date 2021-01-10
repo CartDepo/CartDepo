@@ -49,9 +49,9 @@ class PlaceService(
         } ?: throw EntityNotFoundException("Расположение c УИД=$placeId не найдено")
     }
 
-    fun getPlaceByPlaceType(placeType: String) =
+    fun getPlaceByPlaceType(placeType: Long) =
             placeRepository.getPlaceByPlaceType(placeType).map(PlaceMapper::toDto)
 
-    fun getPlaceByPlaceStatus(placeStatus: String) = placeRepository.getPlaceByPlaceStatus(placeStatus)
+    fun getPlaceByPlaceStatus(placeStatus: Long) = placeRepository.getPlaceByPlaceStatus(placeStatus)
             .map(PlaceMapper::toDto)
 }

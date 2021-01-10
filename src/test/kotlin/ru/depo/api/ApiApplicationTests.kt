@@ -4,6 +4,8 @@ import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 import ru.depo.api.cart.CartService
+import ru.depo.api.client.ClientDto
+import ru.depo.api.client.ClientService
 import ru.depo.api.contract.ContractService
 import ru.depo.api.contract.status.ContractStatusService
 import ru.depo.api.crash.CrashService
@@ -25,7 +27,7 @@ class ApiApplicationTests(
     private val contractStatusService: ContractStatusService? = null
 
     @Autowired
-    private val clientService: ContractStatusService? = null
+    private val clientService: ClientService? = null
 
     @Autowired
     private val contractService: ContractService? = null
@@ -93,13 +95,22 @@ class ApiApplicationTests(
     fun testFuncs() {
         crashService?.changeStatus(1, 1)
 
+        clientService?.addClient(
+                ClientDto(
+                        fio = "Prikhodko Pavel",
+                        number = "8888",
+                        phone = "88005553535",
+                        serial = "4444"
+                )
+        )
+
         teamService?.getFreeTeam()
 
         detailService?.addDetailToCart(1, 1, "111")
 
         placeService?.changePlaceStatus(1, 1)
-        placeService?.getPlaceByPlaceStatus("Занято")
-        placeService?.getPlaceByPlaceType("Ангар")
+        placeService?.getPlaceByPlaceStatus(1)
+        placeService?.getPlaceByPlaceType(1)
 
         cartService?.changeCartTeam(1, 1)
         cartService?.changePlace(1, 1)
