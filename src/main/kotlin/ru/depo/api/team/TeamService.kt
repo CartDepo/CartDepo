@@ -34,5 +34,5 @@ class TeamService(
     fun getOne(id: Long) =
         teamRepository.getOne(id)
 
-    fun getFreeTeam() = teamRepository.getFreeTeam().map { TeamMapper.toDto(it) }
+    fun getFreeTeam() = teamRepository.getFreeTeam().map(TeamMapper::toDto)
 }

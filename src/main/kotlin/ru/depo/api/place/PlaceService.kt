@@ -41,8 +41,8 @@ class PlaceService(
         placeRepository.getOne(id)
 
     fun getPlaceByPlaceType(placeType: String) =
-        placeRepository.getPlaceByPlaceType(placeType).map { PlaceMapper.toDto(it) }
+        placeRepository.getPlaceByPlaceType(placeType).map(PlaceMapper::toDto)
 
     fun getPlaceByPlaceStatus(placeStatus: String) = placeRepository.getPlaceByPlaceStatus(placeStatus)
-        .map { PlaceMapper.toDto(it) }
+        .map(PlaceMapper::toDto)
 }
