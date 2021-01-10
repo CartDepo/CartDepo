@@ -1,7 +1,6 @@
 package ru.depo.api.contract
 
 import org.springframework.web.bind.annotation.*
-import java.time.LocalDate
 
 @RestController
 @RequestMapping("contract")
@@ -23,7 +22,7 @@ class ContractController(
     @GetMapping("add")
     fun addContract(
         @RequestParam contractdate: String,
-        @RequestParam cost: Long,
+        @RequestParam cost: Float,
         @RequestParam number: String,
         @RequestParam clientid: Long,
         @RequestParam managerid: Long

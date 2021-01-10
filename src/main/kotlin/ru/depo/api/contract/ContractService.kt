@@ -53,7 +53,7 @@ class ContractService(
 
     fun addContract(
         contractDate: String,
-        cost: Long,
+        cost: Float,
         number: String,
         clientid: Long,
         managerid: Long

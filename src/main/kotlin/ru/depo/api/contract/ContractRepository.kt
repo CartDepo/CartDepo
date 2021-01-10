@@ -15,7 +15,7 @@ interface ContractRepository : JpaRepository<Contract, Long> {
     )
     fun addContract(
         contractdate: LocalDate,
-        cost: Long,
+        cost: Float,
         number: String,
         clientid: Long,
         managerid: Long,
