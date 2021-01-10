@@ -19,4 +19,6 @@ class TeamController(
     fun delete(@RequestParam id: Long) =
             teamService.delete(id = id)
 
+    @GetMapping("getfreeteam")
+    fun getFreeTeam() = teamService.getFreeTeam()
 }

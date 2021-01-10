@@ -40,7 +40,9 @@ class PlaceService(
     fun getOne(id: Long): Place =
         placeRepository.getOne(id)
 
-    fun getPlaceByPlaceType(placeType: String): List<Place> = placeRepository.getPlaceByPlaceType(placeType)
+    fun getPlaceByPlaceType(placeType: String) =
+        placeRepository.getPlaceByPlaceType(placeType).map { PlaceMapper.toDto(it) }
 
-    fun getPlaceByPlaceStatus(placeStatus: String): List<Place> = placeRepository.getPlaceByPlaceStatus(placeStatus)
+    fun getPlaceByPlaceStatus(placeStatus: String) = placeRepository.getPlaceByPlaceStatus(placeStatus)
+        .map { PlaceMapper.toDto(it) }
 }
