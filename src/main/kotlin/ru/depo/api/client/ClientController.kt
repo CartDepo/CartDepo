@@ -19,7 +19,7 @@ class ClientController(
     fun delete(@RequestParam id: Long) =
             clientService.delete(id = id)
 
-    @GetMapping("add")
+    @PostMapping("add")
     fun addClient(@RequestBody clientDto: ClientDto) {
         clientService.addClient(clientDto = clientDto)
     }

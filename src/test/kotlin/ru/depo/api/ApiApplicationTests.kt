@@ -87,4 +87,20 @@ class ApiApplicationTests {
         cartService?.getAll()
     }
 
+    @Test
+    fun testFuncs() {
+        crashService?.changeStatus(1, 1)
+
+        teamService?.getFreeTeam()
+
+        detailService?.addDetailToCart(1, 1, "111")
+
+        placeService?.changePlaceStatus(1, 1)
+        placeService?.getPlaceByPlaceStatus("Занято")
+        placeService?.getPlaceByPlaceType("Ангар")
+
+        cartService?.changeCartTeam(1, 1)
+        cartService?.changePlace(1, 1)
+    }
+
 }
