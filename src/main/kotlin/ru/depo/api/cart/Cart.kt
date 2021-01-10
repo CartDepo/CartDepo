@@ -4,6 +4,7 @@ import ru.depo.api.contract.Contract
 import ru.depo.api.foreman.Foreman
 import ru.depo.api.place.Place
 import ru.depo.api.place.type.PlaceType
+import ru.depo.api.team.Team
 import javax.persistence.*
 
 @Entity
@@ -24,9 +25,9 @@ class Cart(
         @ManyToOne(fetch = FetchType.EAGER)
         val contract: Contract,
 
-        @JoinColumn(name = "foremanid")
+        @JoinColumn(name = "teamid")
         @ManyToOne(fetch = FetchType.EAGER)
-        val foreman: Foreman,
+        val team: Team?,
 
         @JoinColumn(name = "placeid")
         @ManyToOne(fetch = FetchType.EAGER)
