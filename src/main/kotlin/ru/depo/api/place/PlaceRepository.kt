@@ -18,4 +18,7 @@ interface PlaceRepository : JpaRepository<Place, Long> {
 
     @Query(nativeQuery = true, value = "SELECT * FROM getplacebyplacestatus(:placestatus)")
     fun getPlaceByPlaceStatus(@Param("placestatus") placeStatus: Long): List<Place>
+
+    @Query(nativeQuery = true, value = "SELECT * FROM getfreeplacebytype(:placetype)")
+    fun getFreePlaceByPlaceType(@Param("placetype") placeType: Long): List<Place>
 }

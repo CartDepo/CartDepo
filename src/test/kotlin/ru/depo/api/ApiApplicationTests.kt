@@ -3,6 +3,7 @@ package ru.depo.api
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
+import org.springframework.transaction.annotation.Transactional
 import ru.depo.api.cart.CartService
 import ru.depo.api.client.ClientDto
 import ru.depo.api.client.ClientService
@@ -19,6 +20,7 @@ import ru.depo.api.place.type.PlaceTypeService
 import ru.depo.api.team.TeamService
 
 @SpringBootTest
+@Transactional
 class ApiApplicationTests(
 
 ) {
@@ -111,6 +113,7 @@ class ApiApplicationTests(
         placeService?.changePlaceStatus(1, 1)
         placeService?.getPlaceByPlaceStatus(1)
         placeService?.getPlaceByPlaceType(1)
+        placeService?.getFreePlaceByPlaceType(1)
 
         cartService?.changeCartTeam(1, 1)
         cartService?.changePlace(1, 1)
@@ -118,9 +121,12 @@ class ApiApplicationTests(
         contractService?.addContract(
                 contractDate = "2020-10-10",
                 cost = 500000,
-                number = "10000",
+                number = "1123123",
                 clientid = 1,
                 managerid = 1
         )
+
+        crashService?.addCrash(description = "Toto", cartid = 1, typeid = 1, crashstatusid = 1)
+
     }
 }

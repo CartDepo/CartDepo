@@ -16,7 +16,7 @@ interface CrashRepository : CrudRepository<Crash, Long> {
     @Modifying(clearAutomatically = true)
     @Query(
         nativeQuery = true,
-        value = "CALL addcrash(:description, :cartid, :typeid, :crashstatusid)"
+        value = "CALL addCrash(:description, :cartid, :typeid, :crashstatusid)"
     )
     fun addCrash(description: String, cartid: Long, typeid: Long, crashstatusid: Long)
 }
