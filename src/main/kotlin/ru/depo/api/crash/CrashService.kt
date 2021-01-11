@@ -9,31 +9,38 @@ import ru.depo.api.exeption.UnsupportedEntityException
 
 @Service
 class CrashService(
-        private val crashRepository: CrashRepository,
-        private val cartService: CartService,
-        private val crashTypeService: CrashTypeService,
-        private val crashStatusService: CrashStatusService,
+    private val crashRepository: CrashRepository,
+    private val cartService: CartService,
+    private val crashTypeService: CrashTypeService,
+    private val crashStatusService: CrashStatusService,
 ) {
     fun getAll(): List<CrashDto> =
-            crashRepository.findAll().map {
-                CrashMapper.toDto(it)
-            }
+        crashRepository.findAll().map {
+            CrashMapper.toDto(it)
+        }
 
     fun save(crashDto: CrashDto): CrashDto =
-            CrashMapper.toDto(
-                    crashRepository.save(
-                            Crash(
-                                    description = crashDto.description
-                                            ?: throw UnsupportedEntityException("Описание поломки не задано"),
-                                    crashType = crashTypeService.getOne(crashDto.crashType?.id
-                                            ?: throw UnsupportedEntityException("УИД типа поломки не задан")),
-                                    crashStatus = crashStatusService.getOne(crashDto.crashStatus?.id
-                                            ?: throw UnsupportedEntityException("УИД статуса поломки не задан")),
-                                    cart = cartService.getOne(crashDto.cart?.id
-                                            ?: throw UnsupportedEntityException("УИД вагона задан"))
-                            )
+        CrashMapper.toDto(
+            crashRepository.save(
+                Crash(
+                    id = crashDto.id,
+                    description = crashDto.description
+                        ?: throw UnsupportedEntityException("Описание поломки не задано"),
+                    crashType = crashTypeService.getOne(
+                        crashDto.crashType?.id
+                            ?: throw UnsupportedEntityException("УИД типа поломки не задан")
+                    ),
+                    crashStatus = crashStatusService.getOne(
+                        crashDto.crashStatus?.id
+                            ?: throw UnsupportedEntityException("УИД статуса поломки не задан")
+                    ),
+                    cart = cartService.getOne(
+                        crashDto.cart?.id
+                            ?: throw UnsupportedEntityException("УИД вагона задан")
                     )
+                )
             )
+        )
 
     fun delete(id: Long) = crashRepository.deleteById(id)
 
