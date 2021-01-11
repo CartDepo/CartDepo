@@ -21,6 +21,7 @@ class PlaceStatusService(
             PlaceStatusMapper.toDto(
                     placeStatusRepository.save(
                             PlaceStatus(
+                                    id = placeStatusDto.id,
                                     name = placeStatusDto.name
                                             ?: throw UnsupportedEntityException("Название статуса расположения не задан")
                             )
