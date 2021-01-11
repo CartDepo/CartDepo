@@ -22,7 +22,7 @@ class ContractController(
     @GetMapping("add")
     fun addContract(
         @RequestParam contractdate: String,
-        @RequestParam cost: Float,
+        @RequestParam cost: Long,
         @RequestParam number: String,
         @RequestParam clientid: Long,
         @RequestParam managerid: Long

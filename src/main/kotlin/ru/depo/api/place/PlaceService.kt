@@ -54,4 +54,7 @@ class PlaceService(
 
     fun getPlaceByPlaceStatus(placeStatus: Long) = placeRepository.getPlaceByPlaceStatus(placeStatus)
             .map(PlaceMapper::toDto)
+
+    fun getFreePlaceByPlaceType(placeType: Long) = placeRepository.getFreePlaceByPlaceType(placeType)
+            .map(PlaceMapper::toDto)
 }

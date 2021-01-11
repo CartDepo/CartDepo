@@ -28,4 +28,7 @@ class PlaceController(
 
     @GetMapping("getplacebyplacestatus")
     fun getPlaceByPlaceStatus(@RequestParam placeStatus: Long) = placeService.getPlaceByPlaceStatus(placeStatus)
+
+    @GetMapping("free")
+    fun getFreePlaceByPlaceType(@RequestParam placeType: Long) = placeService.getFreePlaceByPlaceType(placeType)
 }
