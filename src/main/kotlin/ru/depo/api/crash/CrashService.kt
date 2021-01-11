@@ -51,4 +51,6 @@ class CrashService(
 
         return crashRepository.findByIdOrNull(crashId)?.let { CrashMapper.toDto(it) }
     }
+
+    fun getOne(id: Long) = crashRepository.getOne(id)
 }
