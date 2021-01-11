@@ -23,6 +23,7 @@ class ContractService(
         ContractMapper.toDto(
             contractRepository.save(
                 Contract(
+                    id = contractDto.id,
                     contractDate = contractDto.contractDate
                         ?: throw UnsupportedEntityException("Дата договора не задана"),
                     cost = contractDto.cost

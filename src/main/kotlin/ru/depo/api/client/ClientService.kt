@@ -16,6 +16,7 @@ class ClientService(
         ClientMapper.toDto(
             clientRepository.save(
                 Client(
+                    id = clientDto.id,
                     fio = clientDto.fio
                         ?: throw UnsupportedEntityException("ФИО клиента расположения не задан"),
                     serial = clientDto.serial

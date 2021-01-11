@@ -18,6 +18,7 @@ class TeamService(
         TeamMapper.toDto(
             teamRepository.save(
                 Team(
+                    id = teamDto.id,
                     number = teamDto.number
                         ?: throw UnsupportedEntityException("Номер бригады не задан"),
                     foreman = foremanService.getOne(
@@ -32,12 +33,12 @@ class TeamService(
         teamRepository.deleteById(id)
 
     fun getOne(id: Long) =
-            teamRepository.getOne(id)
+        teamRepository.getOne(id)
 
     fun getTeamByPredicate(number: String?, foremanId: Long?): List<TeamDto> =
-            teamRepository.getTeamByPredicate(number = number, foremanId = foremanId).map {
-                TeamMapper.toDto(it)
-            }
+        teamRepository.getTeamByPredicate(number = number, foremanId = foremanId).map {
+            TeamMapper.toDto(it)
+        }
 
     fun getFreeTeam() = teamRepository.getFreeTeam().map(TeamMapper::toDto)
 }
