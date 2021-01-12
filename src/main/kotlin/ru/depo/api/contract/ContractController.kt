@@ -35,4 +35,10 @@ class ContractController(
             managerid = managerid,
         )
     }
+
+    @GetMapping("")
+    fun getAll(@RequestParam id: Long): ContractDto =
+            contractService.getOne(id).let {
+                ContractMapper.toDto(it)
+            }
 }
