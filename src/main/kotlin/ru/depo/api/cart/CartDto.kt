@@ -14,5 +14,5 @@ data class CartDto(
         val contract: ContractDto? = null,
         val team: TeamDto? = null,
         val place: PlaceDto? = null,
-        val crashes: List<CrashDto>? = null
+        val crashes: List<CrashDto>
 )

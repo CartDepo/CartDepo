@@ -16,7 +16,9 @@ object ContractMapper {
                     number = entity.number,
                     client = ClientMapper.toDto(entity.client),
                     manager = ManagerMapper.toDto(entity.manager),
-                    status = ContractStatusMapper.toDto(entity.status)
+                    status = ContractStatusMapper.toDto(entity.status),
+                    carts = listOf()
+
             )
 
     fun toDtoWithCarts(entity: Contract, carts: Set<Cart>): ContractDto =

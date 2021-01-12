@@ -17,5 +17,5 @@ class ContractDto(
         val client: ClientDto? = null,
         val manager: ManagerDto? = null,
         val status: ContractStatusDto? = null,
-        val carts: List<CartDto>? = null
+        val carts: List<CartDto>
 )
