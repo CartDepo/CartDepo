@@ -1,18 +1,24 @@
 package ru.depo.api.contract
 
+import org.springframework.data.repository.findByIdOrNull
 import org.springframework.stereotype.Service
+import ru.depo.api.cart.CartDto
+import ru.depo.api.cart.CartMapper
+import ru.depo.api.cart.CartRepository
 import ru.depo.api.client.ClientService
 import ru.depo.api.contract.status.ContractStatusService
 import ru.depo.api.exeption.UnsupportedEntityException
 import ru.depo.api.manager.ManagerService
 import java.time.LocalDate
+import javax.persistence.EntityNotFoundException
 
 @Service
 class ContractService(
     private val contractRepository: ContractRepository,
     private val clientService: ClientService,
     private val managerService: ManagerService,
-    private val contractStatusService: ContractStatusService
+    private val contractStatusService: ContractStatusService,
+    private val cartRepository: CartRepository
 ) {
     fun getAll(): List<ContractDto> =
         contractRepository.findAll().map {
@@ -68,4 +74,9 @@ class ContractService(
             contractstatusid = 1,
         )
     }
+
+    fun findById(id: Long): ContractDto =
+            contractRepository.findByIdOrNull(id)?.let {
+                ContractMapper.toDtoWithCarts(it, cartRepository.findByContractId(id))
+            } ?: throw EntityNotFoundException("Не найден договор с УИД=$id")
 }

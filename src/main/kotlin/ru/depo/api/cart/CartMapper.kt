@@ -30,4 +30,11 @@ object CartMapper {
                     place = PlaceMapper.toDto(entity.place),
                     crashes = crashes.map { CrashMapper.toDtoWithoutCart(it) }
             )
+
+    fun toDtoWithNumberOnly(entity: Cart): CartDto =
+            CartDto(
+                    id = entity.id,
+                    number = entity.number,
+                    year = entity.year,
+            )
 }
