@@ -17,7 +17,8 @@ object CartMapper {
                     year = entity.year,
                     contract = ContractMapper.toDto(entity.contract),
                     team = entity.team?.let { TeamMapper.toDto(it) } ,
-                    place = PlaceMapper.toDto(entity.place)
+                    place = PlaceMapper.toDto(entity.place),
+                    crashes = listOf()
             )
 
     fun toDtoWithCrashes(entity: Cart, crashes: Set<Crash>): CartDto =
@@ -36,5 +37,6 @@ object CartMapper {
                     id = entity.id,
                     number = entity.number,
                     year = entity.year,
+                    crashes = listOf()
             )
 }
