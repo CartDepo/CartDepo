@@ -1,6 +1,7 @@
 package ru.depo.api.cart
 
 import ru.depo.api.contract.ContractDto
+import ru.depo.api.crash.CrashDto
 import ru.depo.api.foreman.ForemanDto
 import ru.depo.api.place.PlaceDto
 import ru.depo.api.place.type.PlaceTypeDto
@@ -12,5 +13,6 @@ data class CartDto(
         val year: Int? = null,
         val contract: ContractDto? = null,
         val team: TeamDto? = null,
-        val place: PlaceDto? = null
+        val place: PlaceDto? = null,
+        val crashes: List<CrashDto>? = null
 )
