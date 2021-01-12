@@ -83,4 +83,11 @@ class CartService(
             ?: throw EntityNotFoundException("Не найден вагон с УИД=$cartId")
     }
 
+    fun change(cartId: Long, placeId: Long, teamId: Long): CartDto {
+        cartRepository.changePlace(cartId, placeId)
+        cartRepository.changeCartTeam(cartId, teamId)
+        return cartRepository.findByIdOrNull(cartId)?.let { CartMapper.toDto(it) }
+                ?: throw EntityNotFoundException("Не найден вагон с УИД=$cartId")
+    }
+
 }

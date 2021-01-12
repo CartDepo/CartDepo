@@ -35,6 +35,10 @@ class CartController(
     fun changePlace(@RequestParam cartId: Long, @RequestParam placeId: Long): CartDto =
             cartService.changePlace(cartId, placeId)
 
+    @GetMapping("change")
+    fun change(@RequestParam cartId: Long, @RequestParam placeId: Long, @RequestParam teamId : Long): CartDto =
+            cartService.change(cartId, placeId, teamId)
+
     @GetMapping("")
     fun findById(@RequestParam cartId: Long): CartDto =
             cartService.findById(cartId)
