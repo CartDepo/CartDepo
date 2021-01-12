@@ -19,4 +19,6 @@ interface CrashRepository : JpaRepository<Crash, Long> {
         value = "CALL addCrash(:description, :cartid, :typeid, :crashstatusid)"
     )
     fun addCrash(description: String, cartid: Long, typeid: Long, crashstatusid: Long)
+
+    fun findByCartId(cartId: Long): Set<Crash>
 }

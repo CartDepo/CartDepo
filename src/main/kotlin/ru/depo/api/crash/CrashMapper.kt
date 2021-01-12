@@ -13,4 +13,13 @@ object CrashMapper {
                     crashStatus = CrashStatusMapper.toDto(entity = entity.crashStatus),
                     cart = CartMapper.toDto(entity = entity.cart)
             )
+
+    fun toDtoWithoutCart(entity: Crash): CrashDto =
+            CrashDto(
+                    id = entity.id,
+                    description = entity.description,
+                    crashType = CrashTypeMapper.toDto(entity = entity.crashType),
+                    crashStatus = CrashStatusMapper.toDto(entity = entity.crashStatus),
+                    cart = null
+            )
 }

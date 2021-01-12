@@ -60,4 +60,7 @@ class CrashService(
     }
 
     fun getOne(id: Long) = crashRepository.getOne(id)
+
+    fun findByCartId(cartId: Long): Set<Crash> = crashRepository.findByCartId(cartId)
+
 }

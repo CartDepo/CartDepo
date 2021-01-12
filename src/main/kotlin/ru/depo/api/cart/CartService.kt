@@ -3,6 +3,8 @@ package ru.depo.api.cart
 import org.springframework.data.repository.findByIdOrNull
 import org.springframework.stereotype.Service
 import ru.depo.api.contract.ContractService
+import ru.depo.api.crash.CrashRepository
+import ru.depo.api.crash.CrashService
 import ru.depo.api.exeption.UnsupportedEntityException
 import ru.depo.api.place.PlaceService
 import ru.depo.api.place.type.PlaceTypeService
@@ -15,12 +17,18 @@ class CartService(
     private val contractService: ContractService,
     private val teamService: TeamService,
     private val placeService: PlaceService,
-    private val placeTypeService: PlaceTypeService
+    private val crashRepository: CrashRepository
 ) {
     fun getAll(): List<CartDto> =
         cartRepository.findAll().map {
             CartMapper.toDto(it)
         }
+
+    fun findById(id: Long): CartDto =
+            cartRepository.findByIdOrNull(id)?.let {
+                CartMapper.toDtoWithCrashes(it, crashRepository.findByCartId(id))
+            } ?: throw EntityNotFoundException("Не найден вагон с УИД=$id")
+
 
     fun save(cartDto: CartDto): CartDto =
         CartMapper.toDto(
